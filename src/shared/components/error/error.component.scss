@@ -1,0 +1,12 @@
+@use '../../styles/base' as *;
+
+.error {
+    margin: 3rem 0;
+    background-color: $color-warning;
+    min-height: 15rem;
+    width: 30rem;
+    border-radius: 3rem;
+    padding: 3rem;
+    font-size: 2rem;
+    color: $color-primary;
+}

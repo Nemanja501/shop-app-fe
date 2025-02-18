@@ -1,4 +1,5 @@
 <div class="register">
+    <h1 class="heading--1">Register</h1>
     <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="form__group">
             <label class="form__label">Username</label>
@@ -25,5 +26,6 @@
         </div>
 
         <button type="submit" class="form__btn" [disabled]="!registerForm.valid">Submit</button>
+        <app-error *ngIf="registerErrors.length > 0" [errorList]="registerErrors"></app-error>
     </form>
 </div>
