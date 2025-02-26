@@ -1,0 +1,48 @@
+@use '../../styles/base' as *;
+
+.navbar {
+    height: 10rem;
+    width: 100vw;
+    background-color: $color-secondary;
+    display: flex;
+    align-items: center;
+
+    &__search {
+        height: 50%;
+        width: 40%;
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+
+        &-input {
+            background-color: $color-primary;
+            width: 100%;
+            border: none;
+            outline: none;
+            border-radius: 3rem;
+            font-size: 3rem;
+            color: $color-secondary;
+
+            &:focus {
+                background-color: rgba($color-primary, .9);
+            }
+        }
+
+        &-icon {
+            margin-left: -5rem;
+            height: 4rem;
+            filter: invert(31%) sepia(33%) saturate(3416%) hue-rotate(2deg) brightness(96%) contrast(103%);
+        }
+    }
+
+    &__user-icon {
+        margin-left: auto;
+        height: 5rem;
+        filter: brightness(0) saturate(100%) invert(90%) sepia(25%) saturate(402%) hue-rotate(319deg) brightness(108%) contrast(105%);
+
+        &:hover {
+            cursor: pointer;
+            filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(313deg) brightness(101%) contrast(105%);
+        }
+    }
+}

@@ -1,0 +1,28 @@
+//////VARIABLES
+/// COLORS
+$color-primary: #FEF9E1;
+$color-primary-dark: #E5D0AC;
+$color-secondary: #FF9D23;
+$color-secondary-dark: #C14600;
+$color-warning: #E52020;
+
+///FONTS
+$font-primary: "Lexend Deca", serif;
+
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; //1rem = 10px
+}
+
+* {
+    font-family: $font-primary;
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    background-color: $color-primary;
+    
+}

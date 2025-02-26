@@ -1,0 +1,70 @@
+@use '../styles/base' as *;
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__label {
+        font-size: 4rem;
+        font-weight: 600;
+        color: $color-secondary-dark;
+        
+    }
+
+    &__input {
+        height: 4rem;
+        width: 50rem;
+        border-radius: 3rem;
+        border: none;
+        background-color: $color-primary-dark;
+        color: $color-secondary-dark;
+        font-size: 3rem;
+        font-weight: 500;
+        outline: none;
+        transition: all .2s;
+
+        &:focus {
+            background-color: rgba($color-primary-dark, .6);
+            color: rgba($color-secondary-dark, .8);
+        }
+
+        &.ng-invalid.ng-touched {
+            border-bottom: .5rem solid $color-warning;
+        }
+    }
+
+    &__group {
+        margin-bottom: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__btn {
+        height: 8rem;
+        width: 15rem;
+        margin-top: 1rem;
+        font-size: 4rem;
+        border-radius: 3rem;
+        border: none;
+        background-color: $color-secondary-dark;
+        color: $color-primary;
+        transition: all .2s;
+
+        &:hover {
+            cursor: pointer;
+            background-color: rgba($color-secondary-dark, .6);
+        }
+
+        &:disabled {
+            pointer-events: none;
+            opacity: .3;
+        }
+    }
+
+    &__warning {
+        color: $color-warning;
+        font-size: 2rem;
+    }
+}

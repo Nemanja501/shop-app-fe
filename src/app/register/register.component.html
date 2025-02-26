@@ -1,0 +1,31 @@
+<div class="register">
+    <h1 class="heading--1">Register</h1>
+    <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form__group">
+            <label class="form__label">Username</label>
+            <input type="text" class="form__input" formControlName="username">
+            <span *ngIf="username!.invalid && username!.touched" class="form__warning">Username must be between 3 and 20 characters</span>
+        </div>
+
+        <div class="form__group">
+            <label class="form__label">Email</label>
+            <input type="email" class="form__input" formControlName="email">
+            <span *ngIf="email!.invalid && email!.touched" class="form__warning">Must enter a valid email</span>
+        </div>
+
+        <div class="form__group">
+            <label class="form__label">Password</label>
+            <input type="password" class="form__input" formControlName="password">
+            <span *ngIf="password!.invalid && password!.touched" class="form__warning">Password must be at least 6 characters long (at least 1 lowercase, 1 uppercase, 1 number, 1 symbol)</span>
+        </div>
+
+        <div class="form__group">
+            <label class="form__label">Confirm password</label>
+            <input type="password" class="form__input" formControlName="password_confirmation">
+            <span *ngIf="password_confirmation!.invalid && password_confirmation!.touched" class="form__warning">Password confirmation is required</span>
+        </div>
+
+        <button type="submit" class="form__btn" [disabled]="!registerForm.valid">Submit</button>
+        <app-error *ngIf="registerErrors.length > 0" [errorList]="registerErrors"></app-error>
+    </form>
+</div>
