@@ -1,0 +1,8 @@
+@use '../../shared/styles/base' as *;
+
+.user {
+    &__header {
+        font-size: 8rem;
+        color: $color-secondary-dark;
+    }
+}

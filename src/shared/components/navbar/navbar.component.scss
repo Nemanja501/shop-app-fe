@@ -37,6 +37,7 @@
 
     &__user-icon {
         margin-left: auto;
+        margin-right: 5rem;
         height: 5rem;
         filter: brightness(0) saturate(100%) invert(90%) sepia(25%) saturate(402%) hue-rotate(319deg) brightness(108%) contrast(105%);
 
@@ -45,4 +46,29 @@
             filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(313deg) brightness(101%) contrast(105%);
         }
     }
+
+    &__options {
+        position: absolute;
+        top: 10rem;
+        right: 0rem;
+        display: flex;
+        width: 15rem;
+        flex-direction: column;
+        background-color: $color-secondary;
+
+        hr {
+            border: 1px solid $color-primary;
+        }
+    }
+
+    &__item {
+        color: $color-primary;
+        font-size: 3rem;
+
+        &:hover {
+            cursor: pointer;
+            color: rgba($color-primary, .7);
+        }
+    }
+
 }
