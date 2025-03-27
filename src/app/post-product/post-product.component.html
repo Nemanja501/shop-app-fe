@@ -1,19 +1,19 @@
 <app-navbar></app-navbar>
 <h1 class="heading--2">Post a new product for sale</h1>
-<form class="form">
+<form class="form" [formGroup]="postProductForm" enctype="multipart/form-data" (ngSubmit)="onSubmit()">
     <div class="form__group">
         <label class="form__label">Name</label>
-        <input type="text" class="form__input">
+        <input type="text" class="form__input" formControlName="name">
     </div>
 
     <div class="form__group">
         <label class="form__label">Price (in dollars)</label>
-        <input type="number" class="form__input">
+        <input type="number" class="form__input" formControlName="price">
     </div>
 
     <div class="form__group">
         <label class="form__label">Image</label>
-        <input name="image" type="file" class="form__input">
+        <input name="image" type="file" class="form__input" formControlName="image" (change)="onFileChanged($event)">
     </div>
 
     <button class="form__btn">Submit</button>
