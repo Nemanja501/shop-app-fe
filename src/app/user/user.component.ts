@@ -3,17 +3,20 @@ import { NavbarComponent } from '../../shared/components/navbar/navbar.component
 import { UserService } from '../../shared/services/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../../shared/models/user.model';
+import { Product } from '../../shared/models/product.model';
+import { ProductListComponent } from "../../shared/components/product-list/product-list.component";
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [NavbarComponent],
+  imports: [NavbarComponent, ProductListComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })
 export class UserComponent implements OnInit{
   id!: string;
   user!: User;
+  products: Array<Product> = [];
 
   constructor(private userService: UserService, private route: ActivatedRoute) {}
 
@@ -23,6 +26,7 @@ export class UserComponent implements OnInit{
       next: (response: any) => {
         console.log('user response', response);
         this.user = response.user;
+        this.products = this.user.products;
       },
       error: err => console.log('user err', err)
     })

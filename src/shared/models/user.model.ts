@@ -1,3 +1,5 @@
+import { Product } from "./product.model";
+
 export interface User {
     id: string;
     username: string;
@@ -5,4 +7,5 @@ export interface User {
     password: string;
     created_at: string;
     updated_at: string;
+    products: Array<Product>
 }

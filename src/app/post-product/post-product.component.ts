@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
 import { ProductService } from '../../shared/services/product.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-product',
@@ -18,7 +19,7 @@ export class PostProductComponent{
     user_id: new FormControl(localStorage.getItem('userId'))
   });
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private router: Router) {}
 
   get name() : string {
     return this.postProductForm.get('name')?.value!; 
@@ -30,6 +31,10 @@ export class PostProductComponent{
 
   get image() {
     return this.postProductForm.get('image'); 
+  }
+
+  get user_id() {
+    return this.postProductForm.get('user_id')?.value;
   }
 
   onFileChanged(event: any) {
@@ -48,6 +53,7 @@ export class PostProductComponent{
     this.productService.postProduct(formData).subscribe({
       next: (response: any) => {
         console.log('post prod res', response);
+        this.router.navigate([`/user/${this.user_id}`])
       },
       error: err => console.log('post prod err', err)
     })
