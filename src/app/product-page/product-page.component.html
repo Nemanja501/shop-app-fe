@@ -1,1 +1,7 @@
-<p>product-page works!</p>
+<app-navbar></app-navbar>
+<div class="product">
+    <h1 class="product__name">{{ product.name }}</h1>
+    <h2 class="product__user">Posted by: <span [routerLink]="'/user/' + product.user?.id">{{ product.user?.username }}</span></h2>
+    <img class="product__img" src="{{ apiUrl + product.imagePath }}">
+    <h2 class="product__price">{{ product.price + '$' }}</h2>
+</div>

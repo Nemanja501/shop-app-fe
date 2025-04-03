@@ -10,8 +10,11 @@ export class ProductService {
     }
 
     postProduct(productData: any) {
-        console.log('product service data', productData);
         return this.http.post('http://localhost:8000/api/post-product', productData, {headers: this.headers});
+    }
+
+    getById(id: string) {
+        return this.http.get(`http://localhost:8000/api/product/${id}`);
     }
 
 }

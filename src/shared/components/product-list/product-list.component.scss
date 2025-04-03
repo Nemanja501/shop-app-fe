@@ -1,26 +1,26 @@
 @use '../../styles/base' as *;
 
-.product {
-    background-color: $color-secondary-dark;
-    margin: 3rem;
-    color: $color-primary;
-    border-radius: 3rem;
-    max-width: 50rem;
+.product-list {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    transition: all .2s;
+    width: 100%;
 
-    &:hover {
-        transform: translateY(-1rem);
-        cursor: pointer;
-        background-color: rgba($color-secondary-dark, .7);
-    }
-
-    &__list {
+    &__item {
+        background-color: $color-secondary-dark;
+        margin: 3rem;
+        color: $color-primary;
+        border-radius: 3rem;
+        max-width: 50rem;
         display: flex;
-        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        transition: all .2s;
+
+        &:hover {
+            transform: translateY(-1rem);
+            cursor: pointer;
+            background-color: rgba($color-secondary-dark, .7);
+        }
     }
 
     &__name {

@@ -1,0 +1,34 @@
+@use '../../shared/styles/base' as *;
+
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__name {
+        color: $color-secondary-dark;
+        font-size: 10rem;
+    }
+
+    &__user {
+        color: $color-secondary-dark;
+        font-size: 5rem;
+        margin-bottom: 3rem;
+
+        & span {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+
+    &__img {
+        max-height: 50rem;
+        max-width: 50rem;
+        margin-bottom: 2rem;
+    }
+
+    &__price {
+        color: $color-secondary-dark;
+        font-size: 5rem;
+    }
+}

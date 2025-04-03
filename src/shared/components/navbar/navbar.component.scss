@@ -16,8 +16,9 @@
 
         &-input {
             background-color: $color-primary;
-            width: 90%;
-            margin-left: 10%;
+            width: 80%;
+            margin-left: 15%;
+            margin-right: 10%;
             border: none;
             outline: none;
             border-radius: 3rem;
@@ -26,15 +27,21 @@
             transition: all .2s;
 
             &:focus {
-                margin-left: 0;
+                margin-left: 10%;
+                margin-right: 0;
                 background-color: rgba($color-primary, .9);
                 width: 100%;
+            }
+
+            &:focus + .navbar__search-icon {
+                margin-left: -5rem;
             }
         }
 
         &-icon {
-            margin-left: -5rem;
+            margin-left: -12rem;
             height: 4rem;
+            transition: all .2s;
             filter: invert(31%) sepia(33%) saturate(3416%) hue-rotate(2deg) brightness(96%) contrast(103%);
         }
     }
