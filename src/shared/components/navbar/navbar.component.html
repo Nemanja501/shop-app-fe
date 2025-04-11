@@ -8,6 +8,8 @@
 
     <img src="shared/icons/user-3-svgrepo-com.svg" class="navbar__user-icon" (click)="toogleOptions()">
     <div *ngIf="isOptionsVisible" class="navbar__options">
+        <p class="navbar__item" [routerLink]="'/home'">Home</p>
+        <hr>
         <p class="navbar__item" (click)="redirectToProfile()">Profile</p>
         <hr>
         <p class="navbar__item" [routerLink]="'/post-product'">Post a new product</p>

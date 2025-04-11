@@ -5,4 +5,10 @@
         font-size: 8rem;
         color: $color-secondary-dark;
     }
+
+    &__msg {
+        font-size: 3rem;
+        color: $color-secondary-dark;
+        margin-top: 2rem;
+    }
 }

@@ -67,4 +67,12 @@
         color: $color-warning;
         font-size: 2rem;
     }
+
+    &__link {
+        color: $color-secondary-dark;
+        margin-top: 3rem;
+        font-size: 2rem;
+        cursor: pointer;
+        text-decoration: underline;
+    }
 }

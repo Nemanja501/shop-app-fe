@@ -1,4 +1,4 @@
-<div class="register">
+<div class="register" *ngIf="!isLoading">
     <h1 class="heading--1">Register</h1>
     <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="form__group">
@@ -26,6 +26,10 @@
         </div>
 
         <button type="submit" class="form__btn" [disabled]="!registerForm.valid">Submit</button>
+        <p [routerLink]="'/login'" class="form__link">Already have an account? Log in here!</p>
         <app-error *ngIf="registerErrors.length > 0" [errorList]="registerErrors"></app-error>
     </form>
+</div>
+<div class="spinner-layout" *ngIf="isLoading">
+    <app-loading-spinner></app-loading-spinner>
 </div>

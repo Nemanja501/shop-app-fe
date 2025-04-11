@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ErrorComponent } from '../../shared/components/error/error.component';
+import { LoadingSpinnerComponent } from '../../shared/components/loading-spinner/loading-spinner.component';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, ErrorComponent],
+  imports: [ReactiveFormsModule, CommonModule, ErrorComponent, RouterLink, LoadingSpinnerComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
@@ -20,6 +21,7 @@ export class RegisterComponent {
     password_confirmation: new FormControl('', [Validators.required])
   });
   registerErrors: Array<String> = [];
+  isLoading: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -40,13 +42,16 @@ export class RegisterComponent {
   }
 
   onSubmit() {
+    this.isLoading = true;
     this.authService.register(this.registerForm.value).subscribe({
       next: response =>{
         console.log('register', response);
+        this.isLoading = false;
         this.router.navigate(['/login']);
       },
       error: err => {
         console.log('error', err);
+        this.isLoading = false;
         for (let errorKey in err.error.errors) {
           console.log('error key', errorKey);
           this.registerErrors.push(err.error.errors[errorKey][0]);
