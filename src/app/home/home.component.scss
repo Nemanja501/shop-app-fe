@@ -1,0 +1,13 @@
+@use '../../shared/styles/base' as *;
+
+.home {
+    &__title {
+        color: $color-secondary-dark;
+        font-size: 10rem;
+    }
+
+    &__subtitle {
+        color: $color-secondary-dark;
+        font-size: 4rem;
+    }
+}

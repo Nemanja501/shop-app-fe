@@ -1,1 +1,11 @@
 <app-navbar></app-navbar>
+<h1 class="home__title">Home</h1>
+<h2 class="home__subtitle">Latest products: </h2>
+<div *ngIf="!isLoading">
+    <app-product-list [products]="products"></app-product-list>
+    <app-pagination-arrow *ngIf="lastPage > currentPage" [isRight]="true" (click)="nextPage()"></app-pagination-arrow>
+    <app-pagination-arrow *ngIf="currentPage > 1" [isLeft]="true" (click)="previousPage()"></app-pagination-arrow>
+</div>
+<div class="spinner-layout" *ngIf="isLoading">
+    <app-loading-spinner></app-loading-spinner>
+</div>

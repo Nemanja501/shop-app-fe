@@ -1,0 +1,46 @@
+@use '../../styles/base' as *;
+
+.pagination-arrow {
+    position: fixed;
+    top: 50vh;
+    height: 10rem;
+    width: 5rem;
+    border-radius: 1rem;
+    background-color: $color-secondary-dark;
+    transition: all .2s;
+    overflow: hidden;
+    box-shadow: $color-secondary-dark 0rem .5rem 1rem;
+
+    &--right {
+        right: 0;
+    }
+
+    &--left {
+        left: 0;
+    }
+
+    &:hover {
+        width: 10rem;
+        filter: brightness(110%);
+        cursor: pointer;
+    }
+
+    &__img {
+        position: relative;
+        height: 9rem;
+        width: 9rem;
+        transition: all .2s;
+
+        &--right {
+            right: 3rem;
+        }
+
+        &--left {
+            right: .5rem;
+        }
+    } 
+
+    &:hover &__img{
+        right: 0rem;
+    }
+}

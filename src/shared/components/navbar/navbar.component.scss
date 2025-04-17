@@ -6,6 +6,7 @@
     background-color: $color-secondary;
     display: flex;
     align-items: center;
+    justify-content: center;
 
     &__search {
         height: 50%;
@@ -46,16 +47,23 @@
         }
     }
 
-    &__user-icon {
+    &__icon-container {
         margin-left: auto;
-        margin-right: 5rem;
+        width: 15rem;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        &:hover, &--active {
+            background-color: rgba($color-primary, .3);
+        }
+    }
+
+    &__user-icon {
         height: 5rem;
         filter: brightness(0) saturate(100%) invert(90%) sepia(25%) saturate(402%) hue-rotate(319deg) brightness(108%) contrast(105%);
-
-        &:hover {
-            cursor: pointer;
-            filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(313deg) brightness(101%) contrast(105%);
-        }
     }
 
     &__options {

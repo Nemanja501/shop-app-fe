@@ -17,4 +17,12 @@ export class ProductService {
         return this.http.get(`http://localhost:8000/api/product/${id}`);
     }
 
+    getAll(page: number = 1) {
+        return this.http.get('http://localhost:8000/api/home', {
+            params: {
+                page
+            }
+        })
+    }
+
 }

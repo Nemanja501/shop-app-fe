@@ -5,8 +5,10 @@
         <img src="shared/icons/search-svgrepo-com.svg" class="navbar__search-icon">
     </div>
     
-
-    <img src="shared/icons/user-3-svgrepo-com.svg" class="navbar__user-icon" (click)="toogleOptions()">
+    <div class="navbar__icon-container" [ngClass]="{'navbar__icon-container--active' : isOptionsVisible}" (click)="toogleOptions()">
+        <img src="shared/icons/user-3-svgrepo-com.svg" class="navbar__user-icon">
+    </div>
+    
     <div *ngIf="isOptionsVisible" class="navbar__options">
         <p class="navbar__item" [routerLink]="'/home'">Home</p>
         <hr>
@@ -16,5 +18,5 @@
         <hr>
         <p class="navbar__item" (click)="logout()">Logout</p>
     </div>
-    
+     
 </nav>

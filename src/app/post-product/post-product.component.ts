@@ -3,11 +3,12 @@ import { NavbarComponent } from '../../shared/components/navbar/navbar.component
 import { ProductService } from '../../shared/services/product.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-post-product',
   standalone: true,
-  imports: [NavbarComponent, ReactiveFormsModule],
+  imports: [NavbarComponent, ReactiveFormsModule, CommonModule],
   templateUrl: './post-product.component.html',
   styleUrl: './post-product.component.scss'
 })
@@ -21,8 +22,8 @@ export class PostProductComponent{
 
   constructor(private productService: ProductService, private router: Router) {}
 
-  get name() : string {
-    return this.postProductForm.get('name')?.value!; 
+  get name() {
+    return this.postProductForm.get('name'); 
   }
 
   get price() {
