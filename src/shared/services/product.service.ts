@@ -25,4 +25,13 @@ export class ProductService {
         })
     }
 
+    search(search: string, page: number = 1) {
+        return this.http.get('http://localhost:8000/api/search', {
+            params: {
+                search,
+                page
+            }
+        })
+    }
+
 }

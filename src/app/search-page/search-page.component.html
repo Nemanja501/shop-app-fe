@@ -1,11 +1,13 @@
 <app-navbar></app-navbar>
 <div *ngIf="!isLoading">
-    <h1 class="user__header">{{ user.username }}'s products</h1>
-    <app-product-list [products]="products"></app-product-list>
+    <h1 class="heading--3">Search results for "{{ searchQuery }}"</h1>
+    <div class="search__product-container">
+        <app-product-list [products]="products"></app-product-list>
+    </div>
     <app-pagination-arrow *ngIf="lastPage > currentPage" [isRight]="true" (click)="nextPage()"></app-pagination-arrow>
     <app-pagination-arrow *ngIf="currentPage > 1" [isLeft]="true" (click)="previousPage()"></app-pagination-arrow>
-    <p class="user__msg" *ngIf="products.length <= 0">{{ user.username }} currently has no products for sale</p>
+    <p class="heading--4" *ngIf="products.length <= 0">Couldn't find any results</p>
 </div>
-<div class="spinner-layout" *ngIf="isLoading">
+<div *ngIf="isLoading" class="spinner-layout">
     <app-loading-spinner></app-loading-spinner>
 </div>

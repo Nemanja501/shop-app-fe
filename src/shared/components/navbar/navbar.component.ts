@@ -14,9 +14,17 @@ export class NavbarComponent {
 
     constructor(private router: Router) {}
 
+    onSearch(event: Event) {
+        console.log((event.target as HTMLTextAreaElement).value);
+        const search = (event.target as HTMLTextAreaElement).value;
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+            this.router.navigate([`/search/${search}`])});
+    }
+
     redirectToProfile() {
         const userId = localStorage.getItem('userId');
-        this.router.navigate([`/user/${userId}`]);
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+            this.router.navigate([`/user/${userId}`])});
     }
 
     toogleOptions() {

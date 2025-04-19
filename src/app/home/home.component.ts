@@ -16,14 +16,14 @@ import { PaginationArrowComponent } from "../../shared/components/pagination-arr
 })
 export class HomeComponent implements OnInit{
   products: Array<Product> = [];
-  currentPage!: number;
+  currentPage: number = 1;
   lastPage!: number;
   isLoading: boolean = true;
 
   constructor(private productService: ProductService) {}
 
-  ngOnInit(): void {
-    this.productService.getAll().subscribe({
+  fetchProducts() {
+    this.productService.getAll(this.currentPage).subscribe({
       next: (response: any) => {
         console.log(response);
         this.isLoading = false;
@@ -33,35 +33,21 @@ export class HomeComponent implements OnInit{
       },
       error: err => console.log('home err', err)
     });
+  }
+
+  ngOnInit(): void {
+    this.fetchProducts();
   }
 
   nextPage() {
     this.isLoading = true;
     this.currentPage = this.currentPage + 1;
-    this.productService.getAll(this.currentPage).subscribe({
-      next: (response: any) => {
-        console.log(response);
-        this.isLoading = false;
-        this.products = response.products.data;
-        this.currentPage = response.products.current_page;
-        this.lastPage = response.products.last_page;
-      },
-      error: err => console.log('home err', err)
-    });
+    this.fetchProducts();
   }
 
   previousPage() {
     this.isLoading = true;
     this.currentPage = this.currentPage - 1;
-    this.productService.getAll(this.currentPage).subscribe({
-      next: (response: any) => {
-        console.log(response);
-        this.isLoading = false;
-        this.products = response.products.data;
-        this.currentPage = response.products.current_page;
-        this.lastPage = response.products.last_page;
-      },
-      error: err => console.log('home err', err)
-    });
+    this.fetchProducts();
   }
 }

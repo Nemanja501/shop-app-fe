@@ -1,7 +1,7 @@
 <nav class="navbar">
     
     <div class="navbar__search">
-        <input type="text" class="navbar__search-input">
+        <input type="text" class="navbar__search-input" (keyup.enter)="onSearch($event)">
         <img src="shared/icons/search-svgrepo-com.svg" class="navbar__search-icon">
     </div>
     

@@ -9,7 +9,7 @@
     background-color: $color-secondary-dark;
     transition: all .2s;
     overflow: hidden;
-    box-shadow: $color-secondary-dark 0rem .5rem 1rem;
+    box-shadow: black 0rem 1rem 3rem;
 
     &--right {
         right: 0;
@@ -21,7 +21,7 @@
 
     &:hover {
         width: 10rem;
-        filter: brightness(110%);
+        filter: brightness(150%);
         cursor: pointer;
     }
 
